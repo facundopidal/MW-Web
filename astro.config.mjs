@@ -5,7 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://multiwhatsapp.netlify.app",
+  site: "https://multiwa.netlify.app",
   vite: {
     plugins: [tailwindcss()],
   },
