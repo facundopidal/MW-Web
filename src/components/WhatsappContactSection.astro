@@ -1,0 +1,27 @@
+---
+const whatsappNumber = "+5492235048105"; // Reusing the number from WhatsappButton.astro
+const whatsappMessage =
+    "Hola, estoy interesado en la app de Multi WhatsApp y me gustaría saber más.";
+const message = encodeURIComponent(whatsappMessage);
+---
+
+<section
+    id="contacto-whatsapp"
+    class="bg-neutral-900 py-16 px-2 border-t border-emerald-700/20"
+>
+    <div class="max-w-xl mx-auto text-center">
+        <h2 class="text-3xl font-semibold mb-6">Contactanos por WhatsApp</h2>
+        <p class="text-gray-400 mb-8">
+            ¿Tenés preguntas o quieres solicitar acceso a la aplicación?
+            ¡Escribinos directamente por WhatsApp!
+        </p>
+        <a
+            href={`https://wa.me/${whatsappNumber}?text=${message}`}
+            class="inline-block bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-3 px-6 rounded-lg transition"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Enviar mensaje por WhatsApp
+        </a>
+    </div>
+</section>

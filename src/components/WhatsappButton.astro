@@ -1,0 +1,49 @@
+---
+import { Image } from "astro:assets";
+import WhatsApp from "@assets/WhatsApp_White.png";
+const whatsappNumber = "+5492235048105";
+const whatsappMessage =
+    "Hola, estoy interesado probar la app de Multi WhatsApp.";
+
+const message = encodeURIComponent(whatsappMessage);
+---
+
+<div class="fixed bottom-8 right-8 z-50 flex items-center group">
+    <span
+        class="opacity-0 group-hover:opacity-100 text-gray-300 group-focus-within:opacity-100 pointer-events-none bg-neutral-800 font-bold rounded-lg px-4 py-2 mr-3 text-base shadow-md transition-all ease-in-out duration-200 translate-y-2 group-hover:translate-y-0 group-focus-within:translate-y-0 whitespace-nowrap"
+    >
+        Escribinos por WhatsApp
+    </span>
+    <a
+        href={`https://wa.me/${whatsappNumber}?text=${message}`}
+        class="bg-[#25d366] rounded-full w-16 h-16 flex items-center justify-center shadow-lg transition-shadow duration-200 cursor-pointer focus:outline-none border-none"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Consultar por inscripciones en WhatsApp"
+        tabindex="0"
+    >
+        <Image src={WhatsApp} alt="WhatsApp Icon" width="32" height="32" />
+    </a>
+</div>
+
+<style>
+    .whatsapp-btn {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        background-color: #25d366;
+        color: white;
+        border-radius: 50%;
+        width: 56px;
+        height: 56px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 28px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        transition: transform 0.2s;
+    }
+    .whatsapp-btn:hover {
+        transform: scale(1.1);
+    }
+</style>

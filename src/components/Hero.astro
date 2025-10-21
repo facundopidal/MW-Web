@@ -1,0 +1,27 @@
+---
+import { Image } from "astro:assets";
+import multiwhatsapp from "@assets/multiwhatsapp.png";
+---
+
+<section
+    class="text-center flex flex-col justify-center items-center py-20 md:min-h-screen px-2 md:px-0"
+>
+    <h1 class="text-5xl font-bold gradient-text mb-4 leading-tight">
+        Multi WhatsApp
+    </h1>
+    <p class="text-gray-300 text-lg max-w-2xl mx-auto">
+        Gestioná múltiples cuentas de WhatsApp desde una sola aplicación. Recibí
+        notificaciones, organizá tus chats y simplificá tu trabajo diario.
+    </p>
+    <a
+        href="#contacto-whatsapp"
+        class="mt-8 inline-block bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-3 px-6 rounded-lg transition"
+    >
+        Contactanos
+    </a>
+    <Image
+        src={multiwhatsapp}
+        alt="Multi WhatsApp"
+        class="rounded-xl shadow-lg border border-emerald-700/20 mt-6 mx-auto max-h-[50vh] w-auto"
+    />
+</section>

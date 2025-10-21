@@ -1,22 +1,54 @@
+---
+import "@styles/global.css";
+import productImage from "@assets/multiwhatsapp.png";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Multi WhatsApp</title>
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonicalURL.href} />
+        <meta property="og:title" content="Multi WhatsApp" />
+        <meta
+            property="og:description"
+            content="Gestiona múltiples cuentas de WhatsApp desde una sola aplicación. Recibe notificaciones, organiza tus chats y simplifica tu trabajo diario."
+        />
+        <meta
+            property="og:image"
+            content={new URL(productImage.src, Astro.site).href}
+        />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={canonicalURL.href} />
+        <meta property="twitter:title" content="Multi WhatsApp" />
+        <meta
+            property="twitter:description"
+            content="Gestiona múltiples cuentas de WhatsApp desde una sola aplicación. Recibe notificaciones, organiza tus chats y simplifica tu trabajo diario."
+        />
+        <meta
+            property="twitter:image"
+            content={new URL(productImage.src, Astro.site).href}
+        />
+    </head>
+    <body>
+        <slot />
+    </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+    html,
+    body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+    }
 </style>

@@ -1,0 +1,124 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Disclaimer from "../components/Disclaimer.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout>
+    <section class="max-w-3xl mx-auto px-6 py-16 text-center">
+        <div
+            class="bg-neutral-900 rounded-xl p-8 border border-emerald-700/20 mb-12"
+        >
+            <h1 class="text-4xl font-bold gradient-text mb-6 leading-normal">
+                Descargar Multi WhatsApp
+            </h1>
+            <p class="text-gray-300 text-lg mb-8">
+                ¡Gracias por tu interés en Multi WhatsApp! Haz clic en el botón
+                de abajo para descargar la última versión. Asegúrate de cumplir
+                con los requisitos del sistema.
+            </p>
+            <a
+                id="download-button"
+                href="#"
+                class="inline-block bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-3 px-8 rounded-lg transition text-xl"
+                download
+            >
+                Descargar Ahora
+            </a>
+        </div>
+
+        <script>
+            async function getDownloadLink() {
+                try {
+                    const downloadInfo = await fetch(
+                        "https://raw.githubusercontent.com/facundopidal/MW-Updates/refs/heads/main/updates.json",
+                    );
+                    const data = await downloadInfo.json();
+                    const latestDownloadUrl =
+                        data.platforms["windows-x86_64"].url;
+
+                    const downloadButton = document.getElementById(
+                        "download-button",
+                    ) as HTMLAnchorElement;
+                    if (downloadButton) {
+                        downloadButton.href = latestDownloadUrl;
+                    }
+                } catch (error) {
+                    console.error("Error fetching download link:", error);
+                    // Optionally, display an error message to the user
+                    const downloadButton =
+                        document.getElementById("download-button");
+                    if (downloadButton) {
+                        downloadButton.textContent =
+                            "Error al cargar el enlace";
+                        downloadButton.classList.add(
+                            "bg-red-500",
+                            "hover:bg-red-600",
+                        );
+                        downloadButton.removeAttribute("href");
+                    }
+                }
+            }
+            getDownloadLink();
+        </script>
+
+        <div class="text-left mb-12">
+            <h2 class="text-2xl font-semibold text-emerald-400 mb-4">
+                Instrucciones de Instalación
+            </h2>
+            <ol class="list-decimal list-inside text-gray-300 space-y-2">
+                <li>
+                    Descarga el archivo instalador (.msi) haciendo clic en el
+                    botón de arriba.
+                </li>
+                <li>
+                    Una vez descargado, ejecuta el archivo y sigue las
+                    instrucciones en pantalla.
+                </li>
+                <li>
+                    Si Windows SmartScreen te advierte, haz clic en "Más
+                    información" y luego en "Ejecutar de todos modos".
+                </li>
+                <li>
+                    Una vez instalado, abre la aplicación y comienza a gestionar
+                    tus cuentas de WhatsApp.
+                </li>
+            </ol>
+        </div>
+
+        <div class="text-left mb-12">
+            <h2 class="text-2xl font-semibold text-emerald-400 mb-4">
+                Requisitos del Sistema
+            </h2>
+            <p class="text-gray-300 mb-4">
+                Los requisitos de sistema pueden variar según la cantidad de
+                cuentas de WhatsApp que uses. Aquí una guía:
+            </p>
+            <ul class="list-disc list-inside text-gray-300 space-y-2">
+                <li>
+                    <b>Sistema Operativo:</b> Windows 10 o superior (64-bit)
+                </li>
+                <li>
+                    <b>Espacio en Disco:</b>
+                    <ul class="list-circle list-inside ml-4">
+                        <li>Aplicación base: ~13 MB</li>
+                        <li>
+                            Por cada cuenta de WhatsApp: ~200 MB adicionales
+                            (para datos de sesión)
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>Memoria RAM:</b>
+                    <ul class="list-circle list-inside ml-4">
+                        <li>Mínimo: 4 GB (para 2-4 cuentas)</li>
+                        <li>Recomendado: 8 GB o más (para 5 o más cuentas)</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <Disclaimer />
+    <Footer />
+</Layout>
